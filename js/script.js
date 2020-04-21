@@ -16,31 +16,31 @@ let quotes = [
   {
   quote: '"I pity the fool!"' ,
   source: '  - Mr. T, ' ,
-  citation: 'Rocky III' ,
+  citation: 'Rocky III ' ,
   year: 1982
   },
   {
   quote: '"I want some butts!"' ,
   source: '  - Duke Stroud, ' ,
-  citation: 'Top Gun' ,
+  citation: 'Top Gun ' ,
   year: 1986
   },
   {
   quote: '"Son, your ego is writing checks your body can\'t cash."' ,
   source: '  - Stinger, ' ,
-  citation: 'Top Gun' ,
+  citation: 'Top Gun ' ,
   year: 1986
   },
   {
   quote: '"That\'s right, Iceman. I am dangerous."' ,
   source: '  - Maverick, ' ,
-  citation: 'Top Gun' ,
+  citation: 'Top Gun ' ,
   year: 1986
   },
   {
   quote: '"Put the bunny, back in the box."' ,
   source: '  - Cameron Poe, ' ,
-  citation: 'Con Air' ,
+  citation: 'Con Air ' ,
   year: 1997
   },
   {
@@ -74,6 +74,9 @@ let quotes = [
  * `getRandomQuote` function
 ***/
 
+let message;
+let pullQuote;
+let pullData;
 
 function getRandomQuote (upper) {
 		let randomNumber = Math.floor( Math.random() * upper) + 1;
@@ -82,13 +85,11 @@ function getRandomQuote (upper) {
 		let x = getRandomQuote(9);
 		for (i = 0; i < x; i += 1){
 			for (let prop in quotes){
-				pullQuote = quotes[i].quote;
-				pullData = quotes[i].source + quotes[i].citation + ' ' + quotes[i].year;
+				pullQuote = '<p>' + quotes[i].quote + '</p>';
+				pullData = '<p>' + quotes[i].source + quotes[i].citation + quotes[i].year + '</p>';
 			}
 		}
 	
-		
-
 /***
  * `printQuote` function
 ***/
@@ -96,10 +97,11 @@ function getRandomQuote (upper) {
 
 function printQuote(message){
 	let outputDiv = document.getElementById('quote-box');
+	message = pullQuote + pullData;
 	outputDiv.innerHTML = message;
 }
 	
-message = pullQuote + pullData;
+
 printQuote(message);
 
 /***
