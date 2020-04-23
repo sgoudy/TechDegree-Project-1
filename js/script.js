@@ -58,7 +58,7 @@ let quotes = [
 ];
   
 /*** Declared this variable in the global scope once I realized I'd be needing
-it in the second function as well
+ * it in the second function as well
 ***/
 
 let randomNumber;
@@ -79,19 +79,19 @@ function getRandomQuote (array) {
 function printQuote(random){
 
 /*** Called the getRandomQuote function above in order to allow button functionality 
-by running a single function called printQuote. 
+ * by running a single function called printQuote. 
 ***/
 
 	 getRandomQuote(quotes);
 
 /*** Since getRandomQuote "returns" a random number, I simplified the terminology 
-and called it "x" for the below code 
+ * and called it "x" for the below code 
 ***/
 
 	 let x = randomNumber;
 
 /*** Strung together the first two properties of each object since every quote has 
-a "quote" and "source"
+ * a "quote" and "source"
 ***/
 
 	 let html = '<p class = "quote">' + quotes[x].quote + '</p>' + '<p class = "source">' + quotes[x].source + '';
