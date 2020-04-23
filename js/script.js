@@ -64,8 +64,8 @@ let quotes = [
 /***
  * `getRandomQuote` function
 ***/
+
 let randomNumber;
-let randomQuote;
 let html;
 let x;
 
@@ -73,12 +73,9 @@ const string = document.querySelector('#quote-box');
 
 function getRandomQuote (array) {
 		randomNumber = Math.floor ( Math.random() * array.length);
-		console.log(quotes[randomNumber]);
-		return randomNumber;
+		return quotes[randomNumber];
 		}
 		
-	
-
 getRandomQuote(quotes);
 
 
@@ -92,33 +89,12 @@ function printQuote(random){
   			if (quotes[x].citation > 0 || quotes[x].year > 0){
  		    html += '<span class = "citation">' + quotes[x].citation + '</span>'+'<span class = "year">' + quotes[x].year + '</span></p>';
  			 } 		
-	console.log(html);
 	let outputDiv = document.getElementById('quote-box');
 	outputDiv.innerHTML = html;
+	return html;
 }
 
-printQuote(x);
-
-
-
-		
-	
-      /***  <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
-  ***/
-	
-			
-	
-
-
-/***printQuote(randomNumber);
-***/
-
-
-
-
-/*** printQuote(randomNumber);
-***/
-
+printQuote();
 
 /***
  * click event listener for the print quote button
