@@ -3,10 +3,6 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
 /*** 
  * `quotes` array 
 ***/
@@ -61,14 +57,15 @@ let quotes = [
    },
 ];
   
-/***
- * `getRandomQuote` function
+/*** Declared this variable in the global scope once I realized I'd be needing
+it in the second function as well
 ***/
 
 let randomNumber;
-let html;
-let x;
 
+/***
+ * `getRandomQuote` function
+***/
 
 function getRandomQuote (array) {
 		randomNumber = Math.floor ( Math.random() * array.length);
@@ -80,16 +77,42 @@ function getRandomQuote (array) {
 ***/
 
 function printQuote(random){
+
+/*** Called the getRandomQuote function above in order to allow button functionality 
+by running a single function called printQuote. 
+***/
+
 	 getRandomQuote(quotes);
+
+/*** Since getRandomQuote "returns" a random number, I simplified the terminology 
+and called it "x" for the below code 
+***/
+
 	 let x = randomNumber;
+
+/*** Strung together the first two properties of each object since every quote has 
+a "quote" and "source"
+***/
+
 	 let html = '<p class = "quote">' + quotes[x].quote + '</p>' + '<p class = "source">' + quotes[x].source + '';
+
+/*** Use of conditional "if" here since not all quotes have "citation" and/or "year"
+***/
+
   			if (quotes[x].citation > 0 || quotes[x].year > 0){
  		    html += '<span class = "citation">' + quotes[x].citation + '</span>'+'<span class = "year">' + quotes[x].year + '</span></p>';
  			 } 		
+	
+/*** Standard print location selection
+***/
+
 	let outputDiv = document.getElementById('quote-box');
 	outputDiv.innerHTML = html;
 	return html;
 }
+
+/*** Called the function in order to make it run
+***/
 
 printQuote();
 
