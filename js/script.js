@@ -88,19 +88,10 @@ getRandomQuote(quotes);
 
 function printQuote(random){
 	 let x = randomNumber;
-	 let html = '';
-  			if(quotes[x].quote > 0){
-    		html += '<p class = "quotes">' + quotes[x].quote + '</p>';
-  			} 
-  			if (quotes[x].source > 0){
- 		    html += '<p class = "source">' + quotes[x].source; 
- 			 } 
- 			if (quotes[x].citation > 0) {
-   		   	html += '<span class = "citation">' + quotes[x].citation + '</span>';
-   		   	 } 
-   		   	if (quotes[x].year > 0) {
-   		   	html += '<span class = "year">' + quotes[x].year + '</span></p>';
-			}
+	 let html = '<p class = "quote">' + quotes[x].quote + '</p>' + '<p class = "source">' + quotes[x].source + '';
+  			if (quotes[x].citation > 0 || quotes[x].year > 0){
+ 		    html += '<span class = "citation">' + quotes[x].citation + '</span>'+'<span class = "year">' + quotes[x].year + '</span></p>';
+ 			 } 		
 	console.log(html);
 	let outputDiv = document.getElementById('quote-box');
 	outputDiv.innerHTML = html;
