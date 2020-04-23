@@ -69,21 +69,18 @@ let randomNumber;
 let html;
 let x;
 
-const string = document.querySelector('#quote-box');
 
 function getRandomQuote (array) {
 		randomNumber = Math.floor ( Math.random() * array.length);
 		return quotes[randomNumber];
 		}
-		
-getRandomQuote(quotes);
-
 
 /***
  * `printQuote` function
 ***/
 
 function printQuote(random){
+	 getRandomQuote(quotes);
 	 let x = randomNumber;
 	 let html = '<p class = "quote">' + quotes[x].quote + '</p>' + '<p class = "source">' + quotes[x].source + '';
   			if (quotes[x].citation > 0 || quotes[x].year > 0){
