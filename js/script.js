@@ -14,95 +14,120 @@ project 1 - A Random Quote Generator
 
 let quotes = [
   {
-  quote: '"I pity the fool!"' ,
-  source: '  - Mr. T, ' ,
-  citation: 'Rocky III ' ,
+  quote: "I pity the fool!" ,
+  source: 'Mr. T' ,
+  citation: 'Rocky III' ,
   year: 1982
   },
   {
-  quote: '"I want some butts!"' ,
-  source: '  - Duke Stroud, ' ,
+  quote: "I want some butts!" ,
+  source: 'Duke Stroud' ,
+  citation: 'Top Gun' ,
+  year: 1986
+  },
+  {
+  quote: "Son, your ego is writing checks your body can't cash." ,
+  source: 'Stinger' ,
   citation: 'Top Gun ' ,
   year: 1986
   },
   {
-  quote: '"Son, your ego is writing checks your body can\'t cash."' ,
-  source: '  - Stinger, ' ,
-  citation: 'Top Gun ' ,
+  quote: "That's right, Iceman. I am dangerous." ,
+  source: 'Maverick' ,
+  citation: 'Top Gun' ,
   year: 1986
   },
   {
-  quote: '"That\'s right, Iceman. I am dangerous."' ,
-  source: '  - Maverick, ' ,
-  citation: 'Top Gun ' ,
-  year: 1986
-  },
-  {
-  quote: '"Put the bunny, back in the box."' ,
-  source: '  - Cameron Poe, ' ,
-  citation: 'Con Air ' ,
+  quote: "Put the bunny, back in the box." ,
+  source: 'Cameron Poe' ,
+  citation: 'Con Air' ,
   year: 1997
   },
   {
-  quote: '"Courage is fear holding on a minute longer."' ,
-  source: '  - General George S. Patton' ,
-  citation: '' ,
-  year: ''
+  quote: "Courage is fear holding on a minute longer." ,
+  source: 'General George S. Patton' 
   },
   {
-  quote: '"Courage is being scared to death- but saddling up anyway."' ,
-  source: '  - John Wayne' ,
-  citation: '' ,
-  year: ''
+  quote: "Courage is being scared to death- but saddling up anyway." ,
+  source: 'John Wayne' 
   },
   {
-  quote: '"If having a soul means being able to feel love and loyalty and gratitude, then animals are better off than a lot of humans."' ,
-  source: '  - James Herriot' ,
-  citation: '' ,
-  year: ''
+  quote: "If having a soul means being able to feel love and loyalty and gratitude, then animals are better off than a lot of humans." ,
+  source: 'James Herriot' 
   },
   {
-  quote: '"The greatness of a nation and its moral progress can be judged by the way its animals are treated."' ,
-  source: '  - Mahatma Gandhi' ,
-  citation: '' ,
-  year: ''
+  quote: "The greatness of a nation and its moral progress can be judged by the way its animals are treated." ,
+  source: 'Mahatma Gandhi' 
    },
 ];
   
-
 /***
  * `getRandomQuote` function
 ***/
+let randomNumber;
+let randomQuote;
+let html;
+let x;
 
-let message;
-let pullQuote;
-let pullData;
+const string = document.querySelector('#quote-box');
 
-function getRandomQuote (upper) {
-		let randomNumber = Math.floor( Math.random() * upper) + 1;
+function getRandomQuote (array) {
+		randomNumber = Math.floor ( Math.random() * array.length);
+		console.log(quotes[randomNumber]);
 		return randomNumber;
 		}
-		let x = getRandomQuote(9);
-		for (i = 0; i < x; i += 1){
-			for (let prop in quotes){
-				pullQuote = '<p>' + quotes[i].quote + '</p>';
-				pullData = '<p>' + quotes[i].source + quotes[i].citation + quotes[i].year + '</p>';
-			}
-		}
+		
 	
+
+getRandomQuote(quotes);
+
+
 /***
  * `printQuote` function
 ***/
 
-
-function printQuote(message){
+function printQuote(random){
+	 let x = randomNumber;
+	 let html = '';
+  			if(quotes[x].quote > 0){
+    		html += '<p class = "quotes">' + quotes[x].quote + '</p>';
+  			} 
+  			if (quotes[x].source > 0){
+ 		    html += '<p class = "source">' + quotes[x].source; 
+ 			 } 
+ 			if (quotes[x].citation > 0) {
+   		   	html += '<span class = "citation">' + quotes[x].citation + '</span>';
+   		   	 } 
+   		   	if (quotes[x].year > 0) {
+   		   	html += '<span class = "year">' + quotes[x].year + '</span></p>';
+			}
+	console.log(html);
 	let outputDiv = document.getElementById('quote-box');
-	message = pullQuote + pullData;
-	outputDiv.innerHTML = message;
+	outputDiv.innerHTML = html;
 }
+
+printQuote(x);
+
+
+
+		
+	
+      /***  <p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
+  ***/
+	
+			
 	
 
-printQuote(message);
+
+/***printQuote(randomNumber);
+***/
+
+
+
+
+/*** printQuote(randomNumber);
+***/
+
 
 /***
  * click event listener for the print quote button
