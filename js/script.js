@@ -61,14 +61,14 @@ let quotes = [
  * it in the second function as well
 ***/
 
-let randomNumber;
+
 
 /***
  * `getRandomQuote` function
 ***/
 
-function getRandomQuote (array) {
-		randomNumber = Math.floor ( Math.random() * array.length);
+function getRandomQuote () {
+		const randomNumber = Math.floor ( Math.random() * quotes.length);
 		return quotes[randomNumber];
 		}
 
@@ -82,26 +82,33 @@ function printQuote(random){
  * by running a single function called printQuote. 
 ***/
 
-	 getRandomQuote(quotes);
+	 
 
 /*** Since getRandomQuote "returns" a random number, I simplified the terminology 
  * and called it "x" for the below code 
 ***/
 
-	 let x = randomNumber;
+	 const x = getRandomQuote();
 
 /*** Strung together the first two properties of each object since every quote has 
  * a "quote" and "source"
 ***/
 
-	 let html = '<p class = "quote">' + quotes[x].quote + '</p>' + '<p class = "source">' + quotes[x].source + '';
+	 let html = '<p class = "quote">' + x.quote + '</p>' + '<p class = "source">' + x.source + '';
 
 /*** Use of conditional "if" here since not all quotes have "citation" and/or "year"
 ***/
 
-  			if (quotes[x].citation > 0 || quotes[x].year > 0){
- 		    html += '<span class = "citation">' + quotes[x].citation + '</span>'+'<span class = "year">' + quotes[x].year + '</span></p>';
+
+  			if (x.citation) {
+ 		    html += '<span class = "citation">' + x.citation + '</span>';
  			 } 		
+
+ 			if (x.year){
+ 			html += '<span class = "year">' + x.year + '</span>';
+ 			} 
+
+ 			html += '</p>';
 	
 /*** Standard print location selection
 ***/
