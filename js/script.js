@@ -55,17 +55,27 @@ let quotes = [
   source: 'Mahatma Gandhi' 
    },
 ];
-
 /**
  * `getRandomQuote` function
 **/
 function getRandomQuote(){
 		const randomNumber = Math.floor(Math.random() * quotes.length);
+    const randCol = Math.floor(Math.random() * 5);
+    const col = [
+      'red',
+      'blue',
+      'grey',
+      'black',
+      'green',
+      'orange',
+      'turquoise'
+    ];
+    document.body.style.backgroundColor = col[randCol];
 		return quotes[randomNumber];
 		}
 
 let image = document.createElement('img');
- document.querySelector('header').appendChild(image);
+document.querySelector('header').appendChild(image);
 /*
  * `printQuote` function
 **/
@@ -73,7 +83,6 @@ function printQuote(){
   if (document.querySelector('img')){
     document.querySelector('img').src = '';
   }
-  
 	 const x = getRandomQuote();
    const quoteHTML = document.getElementsByClassName('quote')[0].textContent;
    if (x.quote !== quoteHTML){
@@ -99,6 +108,8 @@ function printQuote(){
 // Print location selection.	
 }
 printQuote();
+
+setInterval(printQuote, 4000);
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
