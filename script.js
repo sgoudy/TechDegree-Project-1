@@ -10,8 +10,7 @@ let quotes = [
   quote: "I pity the fool!" ,
   source: 'Mr. T' ,
   citation: 'Rocky III' ,
-  year: 1982,
-  picture: "images/mr-t.jpeg"
+  year: 1982
   },
   {
   quote: "I want some butts!" ,
@@ -47,15 +46,13 @@ let quotes = [
   },
   {
   quote: "If having a soul means being able to feel love and loyalty and gratitude, then animals are better off than a lot of humans." ,
-  source: 'James Herriot' ,
-  picture:  "images/james-herriot.detail.png"
+  source: 'James Herriot' 
   },
   {
   quote: "The greatness of a nation and its moral progress can be judged by the way its animals are treated." ,
   source: 'Mahatma Gandhi' 
    },
 ];
-
 /**
  * `getRandomQuote` function
 **/
@@ -63,17 +60,10 @@ function getRandomQuote(){
 		const randomNumber = Math.floor(Math.random() * quotes.length);
 		return quotes[randomNumber];
 		}
-
-let image = document.createElement('img');
- document.querySelector('header').appendChild(image);
 /*
  * `printQuote` function
 **/
 function printQuote(){
-  if (document.querySelector('img')){
-    document.querySelector('img').src = '';
-  }
-  
 	 const x = getRandomQuote();
    const quoteHTML = document.getElementsByClassName('quote')[0].textContent;
    if (x.quote !== quoteHTML){
@@ -85,11 +75,7 @@ function printQuote(){
  			} 
  			if (x.year){
  			  html += '<span class = "year">' + x.year + '</span>';
- 			} 
-      if (x.picture){   
-        image.src = x.picture;
-      } 
-      html += '</p>';
+ 			} html += '</p>';
       let outputDiv = document.getElementById('quote-box');
       outputDiv.innerHTML = html;
       return html;
