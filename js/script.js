@@ -60,15 +60,15 @@ let quotes = [
 **/
 function getRandomQuote(){
 		const randomNumber = Math.floor(Math.random() * quotes.length);
-    const randCol = Math.floor(Math.random() * 5);
+    const randCol = Math.floor(Math.random() * 7);
     const col = [
-      'red',
-      'blue',
+      '#588c7e',
+      '#d96459',
       'grey',
       'black',
-      'green',
-      'orange',
-      'turquoise'
+      'olivegreen',
+      '#f2ae72',
+      '#87bdd8'
     ];
     document.body.style.backgroundColor = col[randCol];
 		return quotes[randomNumber];
@@ -109,7 +109,7 @@ function printQuote(){
 }
 printQuote();
 
-setInterval(printQuote, 4000);
+setInterval(printQuote, 10000);
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
